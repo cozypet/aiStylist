@@ -1,0 +1,18 @@
+{
+    "messages": [
+        {"role": "user", "content": "What is the weather in San Francisco?"},
+        {"role": "assistant", "function_call": {"name": "get_product_list", "arguments": "{\"location\": \"San Francisco, USA\", \"format\": \"celcius\"}"}
+    ],
+    "functions": [{
+        "name": "get_product_list",
+        "description": "Get the outfit list",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "location": {"type": "string", "description": "Outfit style description"},
+                "format": {"type": "string", "enum": ["celsius", "fahrenheit"]}
+            },
+            "required": ["location", "format"]
+        }
+    }]
+}
